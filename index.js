@@ -34,6 +34,11 @@ async function run() {
       res.send(result);
     })
 
+    app.get('/productsCount', async (req, res) => {
+      const count = await productCollection.estimatedDocumentCount()
+      res.send({count});
+    })
+
 
   } catch (error) {
     console.error('error❌', error)
